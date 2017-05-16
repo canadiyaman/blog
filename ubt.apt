@@ -1,0 +1,5 @@
+python-pip 
+python-dev 
+libpq-dev 
+postgresql 
+postgresql-contrib
