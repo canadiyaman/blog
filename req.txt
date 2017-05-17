@@ -6,4 +6,9 @@ markdown
 
 django-filter
 
+djangorestframework-jwt
+
 psycopg2
+
+
+Pillow
