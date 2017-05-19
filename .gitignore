@@ -2,3 +2,6 @@
 .idea
 
 *.pyc
+
+# Static medias
+puclic/

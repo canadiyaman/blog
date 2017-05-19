@@ -12,3 +12,7 @@ psycopg2
 
 
 Pillow
+
+django-grappelli
+
+django-environ>=0.4.0
