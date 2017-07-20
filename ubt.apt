@@ -3,3 +3,5 @@ python-dev
 libpq-dev 
 postgresql 
 postgresql-contrib
+build-essential
+tcl8.5
