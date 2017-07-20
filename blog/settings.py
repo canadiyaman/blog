@@ -19,6 +19,9 @@ from django.utils.translation import ugettext_lazy as _
 ROOT_DIR = environ.Path(__file__) - 2  # (/a/b/myfile.py - 3 = /)
 APPS_DIR = ROOT_DIR.path('apps')
 
+env = environ.Env()
+env.read_env('.env')
+
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.11/howto/deployment/checklist/
 
@@ -43,6 +46,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'apps.user',
+    'apps.stream',
 
     'rest_framework',
     'rest_framework_jwt',
@@ -118,7 +122,12 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/1.11/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'tr'
+
+LANGUAGES = (
+    ('tr', _("Türkçe")),
+    ('en', _('İngilizce'))
+)
 
 TIME_ZONE = 'UTC'
 
@@ -185,3 +194,9 @@ JWT_AUTH = {
 
 GRAPPELLI_CLEAN_INPUT_TYPES = False  # don't clear html5 input types
 GRAPPELLI_ADMIN_TITLE = _("Yönetim Paneli")
+
+
+########## CELERY
+INSTALLED_APPS += ('apps.taskapp.celery.CeleryConfig',)
+INSTALLED_APPS += ('kombu.transport.redis',)
+BROKER_URL = env("CELERY_BROKER_URL", default='redis://')
