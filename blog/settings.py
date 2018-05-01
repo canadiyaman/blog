@@ -91,11 +91,11 @@ WSGI_APPLICATION = 'blog.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'blog',
-        'USER': 'admin',
-        'PASSWORD': '123456',
-        'HOST': 'localhost',
-        'PORT': '5432'
+        'NAME': env('DATABASE_NAME', default='blog'),
+        'USER': env('DATRABSE_USER', default='admin'),
+        'PASSWORD': env('DATRABSE_PASSWORD', default='123456'),
+        'HOST': env('DATRABSE_HOST', default='127.0.0.1'),
+        'PORT': env('DATABASE_PORT', default='5432'),
     }
 }
 

@@ -54,7 +54,8 @@ class UserTimeline(models.Model):
 
     user = models.OneToOneField(
         User,
-        verbose_name=_("Kullanıcı")
+        verbose_name=_("Kullanıcı"),
+        on_delete=models.CASCADE,
     )
 
     cover_imnage = models.ImageField(

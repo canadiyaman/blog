@@ -14,6 +14,6 @@ urlpatterns = [
 
     url(r'^grappelli/', include('grappelli.urls')),
     url(r'^admin/', admin.site.urls),
-    url('^v1/', include(api_urls, namespace="v1")),
+    url('^v1/', include((api_urls, 'v1'), namespace="v1")),
     url('^(?P<slug>[\w-]+)/$', TimelineView.as_view(), name="timeline"),
 ]
