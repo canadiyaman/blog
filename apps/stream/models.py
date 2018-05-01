@@ -23,7 +23,8 @@ class Post(TimeStampModel):
 
     author = models.ForeignKey(
         settings.AUTH_USER_MODEL,
-        verbose_name=_("Yazar")
+        verbose_name=_("Yazar"),
+        on_delete=models.CASCADE,
     )
 
 
@@ -50,7 +51,8 @@ class MultiLanguagePost(models.Model):
     post = models.ForeignKey(
         Post,
         related_name='data',
-        verbose_name=_("Mesaj")
+        verbose_name=_("Mesaj"),
+        on_delete=models.CASCADE,
     )
 
     title = models.CharField(
@@ -110,7 +112,8 @@ class Statistics(models.Model):
     post = models.ForeignKey(
         Post,
         related_name='statistics',
-        verbose_name=_("Mesaj")
+        verbose_name=_("Mesaj"),
+        on_delete=models.CASCADE,
     )
 
     ip = models.GenericIPAddressField(

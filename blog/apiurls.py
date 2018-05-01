@@ -16,5 +16,6 @@ urlpatterns = [
     url(r'^api-token-verify/$', verify_jwt_token),
     url(r'^api-token-refresh/$', refresh_jwt_token),
 
-    url(r'stream/', include(stream_urls, namespace='stream'))
-]
+    url(r'stream/', include((stream_urls, 'stream'), namespace="streamapp")),
+
+    ]
